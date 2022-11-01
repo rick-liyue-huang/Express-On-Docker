@@ -7,4 +7,4 @@ COPY . ./
 # 5 layers for building docker
 # cache the layers, and re cache from the changed layer
 EXPOSE 3000
-CMD ["node", "index.js"]
+CMD ["npm", "run", "dev"]
