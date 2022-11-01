@@ -1,12 +1,10 @@
-FROM node:18  
+FROM node:18
 WORKDIR /app
-# this two layers never changed
 COPY package.json .
+# . direct to /app, before RUN
 RUN npm install
-# this is at build time
 COPY . ./
-# five layers form previous five lines
+# 5 layers for building docker
+# cache the layers, and re cache from the changed layer
 EXPOSE 3000
 CMD ["node", "index.js"]
-# run in container. this is runtime
-# will run `docker build .` to execute the dockefile

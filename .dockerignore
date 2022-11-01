@@ -1,8 +1,6 @@
-**/node_modules
-
+node_modules
 Dockerfile
-
 .dockerignore
-.git 
+node.md 
+.git
 .gitignore
-node.md
