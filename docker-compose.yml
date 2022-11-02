@@ -6,3 +6,17 @@ services:
       - "4000:3100"
     env_file:
       - ./.env
+    depends_on:
+      - mongo # confirm the process order
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rick
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+    volumes:
+      - mongo-db:/data/db # prevent the data loose when down
+
+volumes:
+  mongo-db:
