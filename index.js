@@ -7,6 +7,7 @@ const {
 	MONGO_PORT,
 } = require("./config/config");
 const postRouter = require("./routes/postRoute");
+const authRouter = require("./routes/authRoute");
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/posts", postRouter);
+app.use("/api/v1/users", authRouter);
 
 app.listen(port, () => {
 	console.log(`this server is running on port of ${port}`);
