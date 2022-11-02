@@ -4,3 +4,4 @@ Dockerfile
 node.md 
 .git
 .gitignore
+docker-compose*
