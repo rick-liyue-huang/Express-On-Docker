@@ -1,0 +1,13 @@
+version: "3"
+services:
+  express-app:
+    build: .
+    ports:
+      - "4000:3100"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    # environment:
+    #   - PORT=3100
+    env_file:
+      - ./.env
