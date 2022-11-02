@@ -11,4 +11,8 @@ const {
 const router = express.Router();
 
 // localhost:4000
-router.route("/").get().post();
+router.route("/").get(getAllPosts).post(createPost);
+
+router.route("/:id").get(getOnePost).patch(updatePost).delete(deletePost);
+
+module.exports = router;
