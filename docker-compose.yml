@@ -2,8 +2,8 @@ version: "3"
 services:
   express-app:
     build: .
-    ports:
-      - "4000:3100"
+    # ports:
+    # - "4000:3100" config in nginx
     env_file:
       - ./.env
     depends_on:
@@ -20,6 +20,13 @@ services:
 
   redis:
     image: redis
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "3100:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
 
 volumes:
   mongo-db:

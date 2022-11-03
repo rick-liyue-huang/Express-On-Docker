@@ -24,6 +24,7 @@ const authRouter = require("./routes/authRoute");
 
 const app = express();
 
+app.enable("trust proxy"); // for nginx
 app.use(express.json());
 app.use(
 	session({
@@ -61,8 +62,9 @@ connectWithRetry();
 
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
+app.get("/api/v1", (req, res) => {
 	res.send("<h2>Home  page!</h2>");
+	console.log("123 yeah");
 });
 
 app.use("/api/v1/posts", postRouter);
